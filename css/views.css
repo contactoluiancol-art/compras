@@ -1,0 +1,590 @@
+/* ==========================================================================
+   LOGIN SPLIT SCREEN ÉPICO
+   ========================================================================== */
+
+.auth-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* 1. Panel Izquierdo (Azul Eléctrico / Hero) */
+.auth-hero-panel {
+  flex: 1.1;
+  background: radial-gradient(circle at 10% 20%, #0052cc 0%, #0747a6 50%, #091e42 100%);
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.hero-backdrop-glow {
+  position: absolute;
+  top: -15%;
+  right: -15%;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(0, 197, 255, 0.25) 0%, rgba(0, 82, 204, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #36b37e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #36b37e;
+  animation: pulse-ring 2s infinite ease-out;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(54, 179, 126, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(54, 179, 126, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(54, 179, 126, 0); }
+}
+
+.brand-title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 1.2rem;
+}
+
+.brand-title span {
+  color: #4c9aff;
+  font-weight: 300;
+}
+
+.brand-subtitle {
+  font-size: 1.05rem;
+  color: #deebff;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.protocol-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.protocol-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0.35rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: #b3d4ff;
+  transition: all 0.2s;
+}
+
+.protocol-chip:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+.hero-footer-note {
+  font-size: 0.8rem;
+  color: #79869c;
+}
+
+/* 2. Panel Derecho (Formulario / Blanco Minimalista) */
+.auth-form-panel {
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #ffffff;
+}
+
+.auth-card-modern {
+  width: 100%;
+  max-width: 420px;
+  animation: fadeInSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-card-header {
+  margin-bottom: 2rem;
+}
+
+.lock-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: #deebff;
+  color: #0052cc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+
+.auth-card-header h2 {
+  font-size: 1.8rem;
+  color: #091e42;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.auth-card-header p {
+  color: #5e6c84;
+  font-size: 0.9rem;
+}
+
+/* Inputs con Iconos */
+.input-field-group {
+  margin-bottom: 1.3rem;
+}
+
+.input-field-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #344563;
+  margin-bottom: 0.4rem;
+}
+
+.input-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.6rem;
+  border: 1.5px solid #dfe1e6;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #091e42;
+  background-color: #fafbfc;
+  transition: all 0.2s ease-in-out;
+}
+
+.input-box input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #0052cc;
+  box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.15);
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.9rem;
+  color: #6b778c;
+  pointer-events: none;
+  transition: color 0.2s;
+}
+
+.input-box input:focus + .input-icon {
+  color: #0052cc;
+}
+
+/* Botón de Ingreso Épico */
+.btn-epic-login {
+  width: 100%;
+  padding: 0.85rem 1.4rem;
+  background: linear-gradient(135deg, #0052cc 0%, #0747a6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 82, 204, 0.35);
+  transition: all 0.25s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-epic-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 82, 204, 0.45);
+  background: linear-gradient(135deg, #0747a6 0%, #003882 100%);
+}
+
+.btn-epic-login:active {
+  transform: translateY(0);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-epic-login:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Banner de Error Dinámico */
+.error-msg-banner {
+  background-color: #ffebe6;
+  border: 1px solid #ffbdad;
+  color: #de350b;
+  padding: 0.65rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Responsive para Pantallas Pequeñas */
+@media (max-width: 900px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+  .auth-hero-panel {
+    padding: 2.5rem 1.5rem;
+    flex: none;
+  }
+  .brand-title {
+    font-size: 2.2rem;
+  }
+  .auth-form-panel {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Layout Principal */
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.content-body {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.auth-card {
+  max-width: 400px;
+  margin: 10vh auto;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.kpi-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-box {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+.kpi-box h4 {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.kpi-box span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL DE LA APLICACIÓN
+   ========================================================================== */
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Superior con Glassmorphism */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 2.5rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 1px 10px rgba(9, 30, 66, 0.04);
+}
+
+.nav-brand-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-logo-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--dark-hero) 100%);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 2px 6px var(--primary-glow);
+}
+
+.nav-user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.content-body {
+  padding: 2.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Encabezados de Módulo */
+.view-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.view-header h2 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-title);
+  letter-spacing: -0.5px;
+}
+
+.view-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+/* Tarjetas KPI de Jefatura */
+.kpi-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-box {
+  background: var(--bg-card);
+  padding: 1.4rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-box:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.kpi-box h4 {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.kpi-box span {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-title);
+  letter-spacing: -1px;
+}
+
+/* ==========================================================================
+   TRANSICIÓN Y PANTALLA DE ACCESO ÉPICA
+   ========================================================================== */
+
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #0747a6 0%, #091e42 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlay-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 197, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { transform: scale(0.9); opacity: 0.5; }
+  50% { transform: scale(1.15); opacity: 0.9; }
+}
+
+.overlay-content {
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 450px;
+  transform: scale(0.92);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-overlay.active .overlay-content {
+  transform: scale(1);
+}
+
+.access-vault-icon {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #36b37e;
+  box-shadow: 0 0 30px rgba(54, 179, 126, 0.4);
+}
+
+.scan-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(0, 197, 255, 0.6);
+  animation: rotateScan 6s linear infinite;
+}
+
+@keyframes rotateScan {
+  to { transform: rotate(360deg); }
+}
+
+.access-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #4c9aff;
+  background: rgba(0, 82, 204, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid rgba(76, 154, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.access-text-group h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.access-text-group p {
+  color: #deebff;
+  font-size: 0.95rem;
+}
+
+.terminal-loader {
+  width: 220px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.terminal-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #00c5ff, #36b37e);
+  border-radius: 10px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}

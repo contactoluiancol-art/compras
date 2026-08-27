@@ -1,0 +1,4 @@
+const SUPABASE_URL = 'https://fsmaxofirolzwbigfxip.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZzbWF4b2Zpcm9sendiaWdmeGlwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4Mzc3MjcsImV4cCI6MjEwMzQxMzcyN30.f08TAG5vLZTkd880RLi2gzaYO_CtRzmamNFcjBtzS30';
+
+export const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

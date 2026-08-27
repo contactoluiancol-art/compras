@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  /* Paleta Corporativa */
+  --primary: #0052cc;
+  --primary-hover: #0747a6;
+  --primary-glow: rgba(0, 82, 204, 0.18);
+  --primary-subtle: #deebff;
+  
+  --dark-hero: #091e42;
+  --bg-main: #f4f6f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fafbfc;
+  
+  --text-title: #091e42;
+  --text-dark: #172b4d;
+  --text-muted: #5e6c84;
+  --text-subtle: #7a869a;
+  
+  --border-color: #e2e8f0;
+  --border-focus: #4c9aff;
+  
+  --success: #00875a;
+  --success-bg: #e3fcef;
+  --warning: #ffab00;
+  --warning-bg: #fff0b3;
+  --danger: #de350b;
+  --danger-bg: #ffebe6;
+  --info-bg: #deebff;
+  --info-text: #0747a6;
+  
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  
+  --shadow-sm: 0 1px 3px rgba(9, 30, 66, 0.05);
+  --shadow-md: 0 4px 16px rgba(9, 30, 66, 0.08);
+  --shadow-lg: 0 10px 30px rgba(9, 30, 66, 0.12);
+  
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error-msg {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
